@@ -1,6 +1,6 @@
-# Project Name
+# Supported by module
 
-> Project description
+Displays user album reviews and avatars
 
 ## Related Projects
 
