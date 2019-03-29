@@ -1,11 +1,8 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/bandland', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost/bandland');
 
-let userSchema = new mongoose.Schema({
-  _id: {
-    unique: true,
-    data: Number
-  },
+let userSchema = mongoose.Schema({
+  id: Number,
   username: String,
   comment: String,
   profileImageURL: String,
@@ -14,8 +11,8 @@ let userSchema = new mongoose.Schema({
 
 let User = mongoose.model('User', userSchema);
 
-let getUser = (callback) => {
-  User.find().limit(1).exec((err, user) => {
+let getUser = (callback, id) => {
+  User.find({"id":id}).limit(1).exec((err, user) => {
     if(err) {
       callback(err);
     } else {
