@@ -9,7 +9,7 @@
   },
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "seed":"mongoimport --db bandland --collection users --file userData.json --jsonArray",
+    "seed": "mongoimport --db bandland --collection users --file userData.json --jsonArray",
     "server-dev": "nodemon server/index.js"
   },
   "dependencies": {
