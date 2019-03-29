@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/bandlandUsers', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost/bandland', {useNewUrlParser: true});
 
 let userSchema = new mongoose.Schema({
   _id: {
@@ -8,7 +8,8 @@ let userSchema = new mongoose.Schema({
   },
   username: String,
   comment: String,
-  profileImageURL: String
+  profileImageURL: String,
+  album: Number
 });
 
 let User = mongoose.model('User', userSchema);
