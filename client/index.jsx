@@ -1,4 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import SupportSection from './components/SupportSection.jsx';
 
-ReactDOM.render(<h1>hey</h1>, document.getElementById('app'));
+ReactDOM.render(<SupportSection />, document.getElementById('app'));
