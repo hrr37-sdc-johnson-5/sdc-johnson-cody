@@ -13,3 +13,17 @@ let userSchema = new mongoose.Schema({
 });
 
 let User = mongoose.model('User', userSchema);
+
+let getUser = (callback) => {
+  User.find().limit(1).exec((err, user) => {
+    if(err) {
+      callback(err);
+    } else {
+      callback(null, user);
+    }
+  })
+};
+
+module.exports = {
+  getUser: getUser
+}
