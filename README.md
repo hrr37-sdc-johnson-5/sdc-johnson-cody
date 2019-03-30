@@ -15,8 +15,9 @@ Displays user album reviews and avatars
 
 ## Usage
 
-> Some usage instructions
-
+- Install mongoDB using homebrew before using the database seeding script
+- Run 'brew services start mongodb-community@4.0' and then 'mongo' in the command line
+- Then use the seed script located in the package.json
 ## Requirements
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
