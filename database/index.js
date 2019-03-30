@@ -18,9 +18,20 @@ let getUser = (callback, id) => {
     } else {
       callback(null, user);
     }
-  })
+  });
+};
+
+let getUsersForAlbum = (callback, albumId) => {
+  User.find({"album": albumId}).exec((err, albumUsers) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, albumUsers);
+    }
+  });
 };
 
 module.exports = {
-  getUser: getUser
+  getUser: getUser,
+  getUsersForAlbum: getUsersForAlbum
 }
