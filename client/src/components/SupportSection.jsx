@@ -13,14 +13,11 @@ class SupportSection extends React.Component {
   }
 
   componentDidMount() {
-    $.ajax({
-      method: "GET",
-      url: "/:id",
-      data: data,
-      success: this.setState({
-        users: JSON.parse(data)
+    $.get('/:id', (response) => {
+      this.setState({
+        users: JSON.parse(response)
       })
-    });
+    })
   }
 
   render() {

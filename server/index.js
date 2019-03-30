@@ -4,7 +4,8 @@ const bodyParser = require('body-parser');
 const User = require('../database/index.js');
 const PORT = 3003;
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(`${__dirname}/public`));
+app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
 app.get('/api/users/:id', (req, res) => {
