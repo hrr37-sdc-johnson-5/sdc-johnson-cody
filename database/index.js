@@ -11,7 +11,7 @@ let userSchema = mongoose.Schema({
 
 let User = mongoose.model('User', userSchema);
 
-let getUser = (callback, id) => {
+let getUser = (id, callback) => {
   User.find({"id":id}).limit(1).exec((err, user) => {
     if(err) {
       callback(err);
@@ -21,7 +21,7 @@ let getUser = (callback, id) => {
   });
 };
 
-let getUsersForAlbum = (callback, albumId) => {
+let getUsersForAlbum = (albumId, callback) => {
   User.find({"album": albumId}).exec((err, albumUsers) => {
     if (err) {
       callback(err);

@@ -9,25 +9,25 @@ app.use(bodyParser.json());
 
 app.get('/api/users/:id', (req, res) => {
   let id = req.params.id;
-  User.getUser((err, user) => {
+  User.getUser(id, (err, user) => {
     if(err) {
       console.log(err);
     } else {
       res.json(user);
     }
-  }, id);
+  });
 });
 
 app.get('/:id', (req, res) => {
   let albumId = req.params.id;
 
-  User.getUsersForAlbum((err, albumUsers) => {
+  User.getUsersForAlbum(albumId, (err, albumUsers) => {
     if (err) {
       console.log(err);
     } else {
       res.json(albumUsers);
     }
-  }, albumId);
+  });
 })
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
