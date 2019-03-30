@@ -6,13 +6,18 @@ class CommentList extends React.Component {
     super(props)
   }
   render () {
-    <div>supported by
-    <Comment />
-    <Comment />
-    <Comment />
-    </div>
+    return (
+      <div>supported by
+      <Comment />
+      <Comment />
+      <Comment />
+      </div>
+    )
   }
 }
+
+export default CommentList;
+
 // <div>supported by
 //         <div>
 //         <img src="https://s3.amazonaws.com/uifaces/faces/twitter/91bilal/128.jpg" height="28" width="28"></img>
