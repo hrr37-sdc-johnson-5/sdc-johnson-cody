@@ -1,13 +1,11 @@
-# Project Name
+# Supported by module
 
-> Project description
+Displays user album reviews and avatars
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/team-amy/ana-service
+  - https://github.com/team-amy/Nam-s-Service
 
 ## Table of Contents
 
