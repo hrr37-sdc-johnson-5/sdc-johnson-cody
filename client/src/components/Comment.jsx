@@ -8,9 +8,9 @@ class Comment extends React.Component {
   render() {
     return (
       <div>
-        <img src="https://s3.amazonaws.com/uifaces/faces/twitter/91bilal/128.jpg" height="28" width="28"></img>
-        <a href="">Pierre Conrad</a>
-        <p>this album was good</p>
+        <img src={this.props.user.profileImageURL} height="28" width="28"></img>
+        <a href="">{this.props.user.username}</a>
+        <p>{this.props.user.comment}</p>
       </div>
     )
   }

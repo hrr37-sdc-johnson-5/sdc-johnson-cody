@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const User = require('../database/index.js');
 const PORT = 3003;
 
-app.use('/:id', express.static(__dirname + '/../client/dist'));
+app.use('/', express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 

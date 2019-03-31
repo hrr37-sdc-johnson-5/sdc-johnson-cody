@@ -10,21 +10,23 @@ class SupportSection extends React.Component {
     this.state = {
       users: []
     }
+
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   componentDidMount() {
-    $.get('/:id', (response) => {
+    $.get('/1', (response) => {
       this.setState({
-        users: JSON.parse(response)
-      })
-    })
+        users: response
+      });
+    });
   }
 
   render() {
     return (
       <div>
-        <CommentList />
-        <UserTable />
+        <CommentList users={this.state.users}/>
+        <UserTable users={this.state.users}/>
       </div>
     )
   }

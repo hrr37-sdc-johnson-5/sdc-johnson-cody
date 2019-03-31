@@ -8,9 +8,11 @@ class CommentList extends React.Component {
   render () {
     return (
       <div>supported by
-      <Comment />
-      <Comment />
-      <Comment />
+      {this.props.users.map(user => {
+        return (
+          <Comment user={user} key={user.id}/>
+        );
+      })}
       </div>
     )
   }
