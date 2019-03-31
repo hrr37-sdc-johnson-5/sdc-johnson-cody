@@ -1,7 +1,7 @@
 import React from 'react';
 import UserThumbnail from './UserThumbnail.jsx';
 
-class UserTable extends React.Component {
+class UserPhotoGrid extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -19,4 +19,4 @@ class UserTable extends React.Component {
   }
 }
 
-export default UserTable;
+export default UserPhotoGrid;

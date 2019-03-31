@@ -1,7 +1,7 @@
 import React from 'react';
 import CommentList from './CommentList.jsx';
-import UserTable from './UserTable.jsx';
 import $ from 'jquery';
+import UserPhotoGrid from './UserPhotoGrid.jsx';
 
 class SupportSection extends React.Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class SupportSection extends React.Component {
     return (
       <div>
         <CommentList users={this.state.users}/>
-        <UserTable users={this.state.users}/>
+        <UserPhotoGrid users={this.state.users}/>
       </div>
     )
   }
