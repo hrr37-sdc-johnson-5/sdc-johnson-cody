@@ -11,16 +11,27 @@ let userSchema = mongoose.Schema({
 
 let User = mongoose.model('User', userSchema);
 
-let getUser = (callback, id) => {
+let getUser = (id, callback) => {
   User.find({"id":id}).limit(1).exec((err, user) => {
     if(err) {
       callback(err);
     } else {
       callback(null, user);
     }
-  })
+  });
+};
+
+let getUsersForAlbum = (albumId, callback) => {
+  User.find({"album": albumId}).exec((err, albumUsers) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, albumUsers);
+    }
+  });
 };
 
 module.exports = {
-  getUser: getUser
+  getUser: getUser,
+  getUsersForAlbum: getUsersForAlbum
 }
