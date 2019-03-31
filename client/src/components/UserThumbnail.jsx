@@ -7,7 +7,7 @@ class UserThumbnail extends React.Component {
 
   render() {
     return (
-      <img src="https://s3.amazonaws.com/uifaces/faces/twitter/marakasina/128.jpg" height ="28" width="28"></img>
+      <img src={this.props.user.profileImageURL} height ="28" width="28"></img>
     );
   }
 }

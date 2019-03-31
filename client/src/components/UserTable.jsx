@@ -9,7 +9,11 @@ class UserTable extends React.Component {
   render() {
     return (
       <div>
-      <UserThumbnail />
+      {this.props.users.map(user => {
+        return (
+          <UserThumbnail user={user} key={user.id}/>
+        )
+      })}
       </div>
     )
   }
