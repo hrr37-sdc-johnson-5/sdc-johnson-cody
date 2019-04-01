@@ -3,6 +3,6 @@ import SupportSection from '../components/SupportSection.jsx';
 import {shallow} from 'enzyme';
 
 test('<SupportSection/>', () => {
-  let wrapper = shallow(<SupportSection/>);
+  expect(<SupportSection/>).toBeTruthy();
 
 });
