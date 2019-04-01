@@ -1,10 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Comment from '../components/Comment.jsx';
+import {shallow} from 'enzyme';
 
 test('<Comment/>', () => {
-  console.log(<Comment/>)
-  expect(<Comment/>).toBeTruthy();
+  console.log(shallow(<Comment/>));
 })
 
 test('Fake test', () => {
