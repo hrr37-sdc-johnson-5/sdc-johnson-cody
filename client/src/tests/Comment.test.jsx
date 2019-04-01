@@ -3,7 +3,7 @@ import Comment from '../components/Comment.jsx';
 import {shallow} from 'enzyme';
 
 test('<Comment/>', () => {
-  console.log(shallow(<Comment/>));
+  expect(<Comment/>).toBeTruthy();
 })
 
 test('Fake test', () => {
