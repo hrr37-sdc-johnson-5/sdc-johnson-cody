@@ -9,10 +9,7 @@ module.exports = {
       {
         test : /\.jsx?/,
         include : `${__dirname}/client/src`,
-        loader : 'babel-loader',
-        query: {
-          presets: ['@babel/preset-react','@babel/preset-env']
-        }
+        loader : 'babel-loader'
       }
     ]
   }
