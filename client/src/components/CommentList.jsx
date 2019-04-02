@@ -24,7 +24,7 @@ class CommentList extends React.Component {
           <Comment user={user} key={user.id}/>
         );
       })}
-      <p onClick={() => this.onShowMore()} className="more">more...</p>
+      {(this.state.numberOfComments <= this.props.users.length) && <p onClick={() => this.onShowMore()} className="more">more...</p>}
       </div>
     )
   }
