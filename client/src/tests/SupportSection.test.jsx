@@ -1,8 +1,8 @@
 import React from 'react';
 import SupportSection from '../components/SupportSection.jsx';
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 
 test('<SupportSection/>', () => {
-  expect(<SupportSection/>).toBeTruthy();
-
+  let wrapper = shallow(<SupportSection/>);
+  expect(wrapper.exists()).toBe(true);
 });
