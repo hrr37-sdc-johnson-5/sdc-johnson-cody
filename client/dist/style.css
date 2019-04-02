@@ -1,0 +1,13 @@
+body {
+  font-size: 13px;
+  font-family: Helvetica Neue, sans-serif;
+}
+
+.username {
+  text-decoration: none;
+}
+.comment {
+  font-size: 13px;
+  font-family: Georgia, serif;
+  font-style: italic;
+}
