@@ -1,13 +1,21 @@
-body {
-  font-size: 13px;
-  font-family: Helvetica Neue, sans-serif;
-}
-
-.username {
+/* .supportSection {
+  display: flex;
+} */
+.supportedBy {
+  font: normal 12px Helvetica Neue, sans-serif;
   text-decoration: none;
+}
+.username {
+  font: 500 normal 13px Helvetica Neue, sans-serif;
+  text-decoration: none;
+  color: black;
 }
 .comment {
   font-size: 13px;
   font-family: Georgia, serif;
   font-style: italic;
+}
+
+.more {
+  font:normal 12px Helvetica Neue, sans-serif;
 }

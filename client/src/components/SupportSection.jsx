@@ -24,7 +24,7 @@ class SupportSection extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="supportSection">
         <CommentList users={this.state.users}/>
         <UserPhotoGrid users={this.state.users}/>
       </div>
