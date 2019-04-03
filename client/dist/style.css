@@ -1,9 +1,9 @@
 /* .supportSection {
   display: flex;
 } */
-.commentDiv {
-  display: block;
-}
+/* .commentDiv {
+
+} */
 .supportedBy {
   font: normal 12px Helvetica Neue, sans-serif;
   text-decoration: none;
@@ -15,7 +15,6 @@
 .username {
   font: 500 normal 13px Helvetica Neue, sans-serif;
   padding-right: 0.2em;
-  word-wrap: break-word;
   color: black;
 }
 .comment {
@@ -27,4 +26,8 @@
 .more {
   font:normal 12px Helvetica Neue, sans-serif;
   cursor: pointer;
+}
+
+.thumbnail {
+  padding: 3px;
 }
