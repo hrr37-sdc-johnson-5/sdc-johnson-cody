@@ -17,6 +17,13 @@
   font: 500 normal 13px Helvetica Neue, sans-serif;
   padding-right: 0.2em;
   color: black;
+  text-decoration: none;
+}
+.username:hover {
+  text-decoration: underline;
+}
+.commentBlock {
+  display: inline-block;
 }
 .comment {
   font-size: 13px;
@@ -27,6 +34,9 @@
 .more {
   font:normal 12px Helvetica Neue, sans-serif;
   cursor: pointer;
+}
+.more:hover {
+  text-decoration: underline;
 }
 
 .thumbnail {
