@@ -1,6 +1,7 @@
-/* .supportSection {
-  display: flex;
-} */
+.supportSection {
+  height: 350px;
+  width: 333px;
+}
 /* .commentDiv {
 
 } */
@@ -29,5 +30,5 @@
 }
 
 .thumbnail {
-  padding: 3px;
+  margin: 0 3px 7px 4px;
 }
