@@ -1,0 +1,34 @@
+.supportSection {
+  height: 350px;
+  width: 333px;
+}
+/* .commentDiv {
+
+} */
+.supportedBy {
+  font: normal 12px Helvetica Neue, sans-serif;
+  text-decoration: none;
+}
+.pic {
+  top: 3px;
+  padding-right: 3px;
+}
+.username {
+  font: 500 normal 13px Helvetica Neue, sans-serif;
+  padding-right: 0.2em;
+  color: black;
+}
+.comment {
+  font-size: 13px;
+  font-family: Georgia, serif;
+  font-style: italic;
+}
+
+.more {
+  font:normal 12px Helvetica Neue, sans-serif;
+  cursor: pointer;
+}
+
+.thumbnail {
+  margin: 0 3px 7px 4px;
+}
