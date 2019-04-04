@@ -12,6 +12,7 @@
 .pic {
   top: 3px;
   padding-right: 3px;
+  float: left;
 }
 .username {
   font: 500 normal 13px Helvetica Neue, sans-serif;
