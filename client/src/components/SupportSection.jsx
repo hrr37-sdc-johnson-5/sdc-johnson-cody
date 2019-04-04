@@ -15,7 +15,7 @@ class SupportSection extends React.Component {
   }
 
   componentDidMount() {
-    $.get('/1', (response) => {
+    $.get('/1',(response) => {
       this.setState({
         users: response
       });
