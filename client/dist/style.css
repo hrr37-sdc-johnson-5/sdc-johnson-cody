@@ -10,9 +10,12 @@
   text-decoration: none;
 }
 .pic {
-  top: 3px;
+  position: absolute;
+  top: 0;
+  left: 0;
   padding-right: 3px;
-  float: left;
+  /* float: left; */
+  margin: 3px;
 }
 .username {
   font: 500 normal 12px Helvetica Neue, sans-serif;
@@ -25,6 +28,8 @@
 }
 .commentBlock {
   display: inline-block;
+  position: relative;
+  padding: 0 0 0 40px;
   padding-bottom: 10px;
 }
 .comment {
@@ -43,5 +48,9 @@
 }
 
 .thumbnail {
+  margin: 0 3px 7px 4px;
+}
+
+.thumbnails > :first-child {
   margin: 0 3px 7px 4px;
 }

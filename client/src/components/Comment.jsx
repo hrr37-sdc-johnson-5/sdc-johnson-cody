@@ -8,7 +8,9 @@ class Comment extends React.Component {
   render() {
     return (
       <div className="commentBlock">
-        <img className="pic" src={this.props.user.profileImageURL} height="28" width="28"></img>
+        <div className="pic">
+        <img src={this.props.user.profileImageURL} height="28" width="28"></img>
+        </div>
         <div className="words comment">
         <a className="username" href="">{this.props.user.username}</a>
         {this.props.user.comment}
