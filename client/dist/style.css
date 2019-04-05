@@ -13,9 +13,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  padding-right: 3px;
-  /* float: left; */
-  margin: 3px;
 }
 .username {
   font: 500 normal 12px Helvetica Neue, sans-serif;
@@ -52,5 +49,5 @@
 }
 
 .thumbnails > :first-child {
-  margin: 0 3px 7px 4px;
+  margin: 0 3px 7px 0px;
 }
