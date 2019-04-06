@@ -1,11 +1,15 @@
+* {
+  background-color: #3858ad;
+}
+
 .supportSection {
+  background-color: #3858ad;
   height: 350px;
   width: 333px;
 }
-/* .commentDiv {
 
-} */
 .supportedBy {
+  color: white;
   font: normal 12px Helvetica Neue, sans-serif;
   text-decoration: none;
 }
@@ -14,10 +18,13 @@
   top: 3px;
   left: 0;
 }
+.pic:hover {
+
+}
 .username {
+  color: white;
   font: 500 normal 12px Helvetica Neue, sans-serif;
   padding-right: 0.2em;
-  color: black;
   text-decoration: none;
 }
 .username:hover {
@@ -27,15 +34,17 @@
   display: inline-block;
   position: relative;
   padding: 0 0 0 35px;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
 .comment {
+  color: white;
   font-size: 12px;
   font-family: Georgia, serif;
   font-style: italic;
 }
 
 .more {
+  color: #6591e2;
   font:normal 12px Helvetica Neue, sans-serif;
   cursor: pointer;
   margin-top: 0;
