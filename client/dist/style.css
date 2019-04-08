@@ -56,20 +56,23 @@
 }
 
 .thumbnail span {
+  padding: 0.2em;
+  height: 115px;
+  width: 100px;
   position: absolute;
   visibility: hidden;
-  top:30%;
-}
-
-.thumbnail .thumbnailUsername {
+  top:26%;
   color: white;
-  font: 500 normal 12px Helvetica Neue, sans-serif;
-  padding-right: 0.2em;
+  font: 400 normal 10px Helvetica Neue, sans-serif;
   text-decoration: none;
   background-color: black;
+  text-align: center;
 }
 
 .thumbnail:hover, .thumbnail:hover span {
+  height: 115px;
+  width: 100px;
+  margin: 0, 0, 0, 0;
   visibility: visible;
 }
 

@@ -7,6 +7,7 @@ class Comment extends React.Component {
 
   render() {
     return (
+
       <div className="commentBlock">
         <div className="pic">
         <img src={this.props.user.profileImageURL} height="28" width="28"></img>
