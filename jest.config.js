@@ -1,5 +1,11 @@
 module.exports = {
-  "testEnvironment": "node",
-  "setupFilesAfterEnv": ["<rootDir>/client/src/tests/enzymeSetup.js"],
-  "transformIgnorePatterns": ['<rootDir>/node_modules/']
+  "testEnvironment": "enzyme",
+  "setupTestFrameworkScriptFile": "jest-enzyme",
+  "transformIgnorePatterns": ['<rootDir>/node_modules/'],
+  "automock": false,
+  "setupFiles": [
+    "./fetchMock.js"
+  ]
 }
+
+//   "setupFilesAfterEnv": ["<rootDir>/client/src/tests/enzymeSetup.js"],
