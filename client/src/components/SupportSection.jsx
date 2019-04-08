@@ -1,6 +1,5 @@
 import React from 'react';
 import CommentList from './CommentList.jsx';
-import $ from 'jquery';
 import UserPhotoGrid from './UserPhotoGrid.jsx';
 
 class SupportSection extends React.Component {
@@ -15,11 +14,15 @@ class SupportSection extends React.Component {
   }
 
   componentDidMount() {
-    $.get('/1',(response) => {
+    fetch('/1')
+    .then(response => {
+      return response.json()
+    })
+    .then(users => {
       this.setState({
-        users: response
-      });
-    });
+        users: users
+      })
+    })
   }
 
   render() {
