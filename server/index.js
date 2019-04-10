@@ -31,6 +31,6 @@ app.get('/support/:id', (req, res) => {
       res.json(albumUsers);
     }
   });
-})
+});
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
