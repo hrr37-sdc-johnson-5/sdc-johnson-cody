@@ -2,8 +2,6 @@ module.exports = (grunt) => {
 
   grunt.loadNpmTasks('grunt-aws');
 
-  grunt.loadNpmTasks('grunt-contrib-connect');
-
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     aws: grunt.file.readJSON('.aws.json'),
@@ -14,20 +12,9 @@ module.exports = (grunt) => {
         bucket: "<%= aws.bucket %>"
       },
       build: {
-        cwd: "public",
+        cwd: "client/dist",
         src: "**"
-      }
-    },
-    connect: {
-      server: {
-        options: {
-          port: 8000,
-          base: "public",
-          keepalive: true
-        }
       }
     }
   });
-
-  grunt.registerTask("default", ["connect"]);
 }
