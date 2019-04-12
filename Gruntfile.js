@@ -2,7 +2,7 @@ module.exports = (grunt) => {
 
   grunt.loadNpmTasks('grunt-aws');
 
-  grunt.loadNpmTask('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-connect');
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -21,7 +21,7 @@ module.exports = (grunt) => {
     connect: {
       server: {
         options: {
-          port: 3000,
+          port: 8000,
           base: "public",
           keepalive: true
         }
