@@ -15,7 +15,7 @@ class UserPhotoGrid extends React.Component {
         )
       })}
       </div>
-    )
+    );
   }
 }
 
