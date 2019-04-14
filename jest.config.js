@@ -7,5 +7,3 @@ module.exports = {
     "./fetchMock.js"
   ]
 }
-
-//   "setupFilesAfterEnv": ["<rootDir>/client/src/tests/enzymeSetup.js"],
