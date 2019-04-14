@@ -4,11 +4,11 @@ import UserPhotoGrid from './UserPhotoGrid.jsx';
 
 class SupportSection extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       users: []
-    }
+    };
 
     this.componentDidMount = this.componentDidMount.bind(this);
   }
@@ -17,18 +17,18 @@ class SupportSection extends React.Component {
     let endpoint = window.location.pathname;
 
     if (endpoint.length === 1) {
-      endpoint = "/1"
+      endpoint = "/1";
     }
 
     fetch(`http://localhost:3003/support${endpoint}`)
     .then(response => {
-      return response.json()
+      return response.json();
     })
     .then(users => {
       this.setState({
         users: users
-      })
-    })
+      });
+    });
   }
 
   render() {
@@ -37,7 +37,7 @@ class SupportSection extends React.Component {
         <CommentList users={this.state.users}/>
         <UserPhotoGrid users={this.state.users}/>
       </div>
-    )
+    );
   }
 }
 
