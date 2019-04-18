@@ -43,9 +43,9 @@ npm install
 
 ### CRUD Operations
 
-Markdown | Less | Pretty
---- | --- | ---
-*Still* | `renders` | **nicely**
-1 | 2 | 3
+|intention                 | request type  | request url       | request body     | side effect         | response body 
+|--------------------------|:-------------:|-------------------|------------------|---------------------|----------------------------------------------|
+| read all user comments   | GET           | support/:id       | none             | none                | `[{username: 'Molly.Parsian17', comment: '...'}, {username: 'Dino88', comment: '...'}]` |
+| create new user comments | POST          | support/:id       | `{username: 'Dylan87', comment: '...'}`| creates new record in database | `{username: 'Dylan87', comment: '...'}` |
 
 
