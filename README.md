@@ -41,3 +41,11 @@ npm install -g nodemon
 npm install
 ```
 
+### CRUD Operations
+
+Markdown | Less | Pretty
+--- | --- | ---
+*Still* | `renders` | **nicely**
+1 | 2 | 3
+
+
