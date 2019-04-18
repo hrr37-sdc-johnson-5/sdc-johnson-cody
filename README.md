@@ -48,6 +48,6 @@ npm install
 | read all user comments    | GET           | support/:id       | none             | none                | `[{username: 'Molly.Parsian17', comment: '...'}, {username: 'Dino88', comment: '...'}]` |
 | create new user comments  | POST          | support/:id       | `{username: 'Dylan87', comment: '...'}`| creates new record in database | `{username: 'Dylan87', comment: '...'}` |
 | update one users comments | PUT           | support/:id       | `{username: 'Dino88', comment: '...'}` | updates comment for specified username with new comment | `{username: 'Dino88', comment: 'new...comment'}` |
-| delete one users comments | DELETE        | support/:id       | `username: 'Alfred77' comment: '...'}` | deletes comment for specified username and comment | `username: 'Alfred77' comment: '...'}` |
+| delete one user's comments | DELETE        | support/:id       | `username: 'Alfred77' comment: '...'}` | deletes comment for specified username and comment | `username: 'Alfred77' comment: '...'}` |
 
 
