@@ -12,7 +12,7 @@ Displays user album reviews and avatars
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
-1. [CRUD Operations](#CRUD operations)
+1. [CRUD Operations](#CRUDoperations)
 
 ## Usage
 
