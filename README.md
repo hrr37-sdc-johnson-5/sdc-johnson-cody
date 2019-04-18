@@ -12,7 +12,7 @@ Displays user album reviews and avatars
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
-1. [CRUD Operations](#CRUD-Operations)
+1. [CRUD Operations](#CRUD)
 
 ## Usage
 
@@ -42,7 +42,7 @@ npm install -g nodemon
 npm install
 ```
 
-### CRUD-Operations
+### CRUD
 
 |intention                  | request type  | request url       | request body             | side effect         | response body 
 |---------------------------|:-------------:|-------------------|--------------------------|---------------------|----------------------------------------------|
