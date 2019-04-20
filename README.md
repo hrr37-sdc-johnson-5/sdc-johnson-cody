@@ -12,6 +12,7 @@ Displays user album reviews and avatars
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
+1. [CRUD Operations](#CRUD)
 
 ## Usage
 
@@ -40,4 +41,14 @@ npm install -g webpack
 npm install -g nodemon
 npm install
 ```
+
+### CRUD
+
+|intention                  | request type  | request url       | request body             | side effect         | response body 
+|---------------------------|:-------------:|-------------------|--------------------------|---------------------|----------------------------------------------|
+| read all user comments    | GET           | support/:id       | none             | none                | `[{username: 'Molly.Parsian17', comment: '...'}, {username: 'Dino88', comment: '...'}]` |
+| create new user comments  | POST          | support/:id       | `{username: 'Dylan87', comment: '...'}`| creates new record in database | `{username: 'Dylan87', comment: '...'}` |
+| update user's comment | PUT           | support/:id       | `{username: 'Dino88', comment: '...'}` | updates comment for specified album, username, and comment with new comment | `{username: 'Dino88', comment: 'new...comment'}` |
+| delete user's comment | DELETE        | support/:id       | `username: 'Alfred77' comment: '...'}` | deletes comment for specified album, username, and comment | `username: 'Alfred77' comment: '...'}` |
+
 
