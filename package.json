@@ -11,6 +11,7 @@
     "react-dev": "webpack -d --watch",
     "seed": "mongoimport --db bandland --collection users --file userData.json --jsonArray",
     "gen-data": "node --max-old-space-size=8192 database/mockDataGen.js",
+    "seed-postgres": "node --max-old-space-size=8192 database/postgresSeed.js",
     "start": "nodemon server/index.js",
     "test": "jest --verbose",
     "test:coverage": "jest --verbose --coverage"
