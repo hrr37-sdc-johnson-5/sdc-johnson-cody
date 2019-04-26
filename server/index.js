@@ -18,12 +18,52 @@ const db = require('../database/pg.js');
 
 app.get('/support/:id', (req, res) => {
   let albumId = Number(req.params.id);
-  console.log(typeof albumId);
-  db.getUsersForAlbum(albumId, (err, albumUsers) => {
+
+  db.getAlbumComments(albumId, (err, albumUsers) => {
     if (err) {
       console.log(err);
     } else {
-      res.json(albumUsers);
+      res.send(albumUsers);
+    }
+  });
+});
+
+app.post('/support/:id', (req, res) => {
+  let albumId = Number(req.params.id);
+  let params = [albumId, req.body.username, req.body.comment, req.body.profileImg]
+
+  db.createNewAlbumComment(params, (err, result) => {
+    if (err) {
+      console.error(error);
+    } else {
+      res.status(201);
+      res.send(result);
+    }
+  });
+});
+
+app.put('/support/comments/:id', (req, res) => {
+  let commentId = Number(req.params.id);
+  let params = [commentId, req.body.comment];
+
+  db.updateAlbumComment(params, (err, result) => {
+    if (err) {
+      console.log(error);
+    } else {
+      res.status(202);
+      res.send(result);
+    }
+  });
+});
+
+app.delete('/support/comments/:id', (req, res) => {
+  let commentId = Number(req.params.id);
+  db.deleteAlbumComment(commentId, (err, result) => {
+    if (err) {
+      console.error(error);
+    } else {
+      res.status(202);
+      res.send(result);
     }
   });
 });
