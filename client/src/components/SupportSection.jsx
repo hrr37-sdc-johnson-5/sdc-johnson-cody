@@ -14,18 +14,13 @@ class SupportSection extends React.Component {
   }
 
   componentDidMount() {
-    let endpoint = window.location.pathname;
-
-    if (endpoint.length === 1) {
-      endpoint = "/1";
-    }
-
-    fetch(`http://localhost:3003/support${endpoint}`)
+    let endpoint = window.location.pathname.slice(1);
+    let origin = window.location.origin
+    fetch(`${origin}/support/${endpoint}`)
     .then(response => {
       return response.json();
     })
     .then(users => {
-      console.log(users);
       this.setState({
         users: users
       });

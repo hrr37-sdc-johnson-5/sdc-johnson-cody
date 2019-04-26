@@ -2,31 +2,24 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const User = require('../database/index.js');
 const PORT = 3003;
+
 
 app.use(cors());
 app.use('/', express.static(__dirname + '/../client/dist'))
 app.use('/:id', express.static(__dirname + '/../client/dist'));
 
-app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('/api/users/:id', (req, res) => {
-  let id = req.params.id;
-  User.getUser(id, (err, user) => {
-    if(err) {
-      console.log(err);
-    } else {
-      res.json(user);
-    }
-  });
-});
+//===========Routes====================//
+
+const db = require('../database/pg.js');
 
 app.get('/support/:id', (req, res) => {
-  let albumId = req.params.id;
-
-  User.getUsersForAlbum(albumId, (err, albumUsers) => {
+  let albumId = Number(req.params.id);
+  console.log(typeof albumId);
+  db.getUsersForAlbum(albumId, (err, albumUsers) => {
     if (err) {
       console.log(err);
     } else {
