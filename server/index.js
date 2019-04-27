@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 //===========Routes====================//
 
-const db = require('../database/pg.js');
+const db = require('../database/index.js');
 
 app.get('/support/:id', (req, res) => {
   const albumId = Number(req.params.id);
