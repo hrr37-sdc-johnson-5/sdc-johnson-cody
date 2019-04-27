@@ -7,7 +7,7 @@ const pool = new Pool({
 
 // CREATE
 const createNewAlbumComment = (params, callback) => {
-  let queryStr = `INSERT INTO album_comments (albumid, username, comment, profileimg, id) values ($1, $2, $3, $4, DEFAULT) RETURNING *`;
+  const queryStr = `INSERT INTO album_comments (albumid, username, comment, profileimg, id) values ($1, $2, $3, $4, DEFAULT) RETURNING *`;
   pool.connect()
     .then(client => {
       return client.query(queryStr, params)
@@ -23,9 +23,10 @@ const createNewAlbumComment = (params, callback) => {
 
 // READ
 const getAlbumComments = (param, callback) => {
+  const queryStr = `SELECT * FROM album_comments WHERE albumId = $1`;
   pool.connect()
     .then(client => {
-      return client.query(`SELECT * FROM album_comments WHERE albumId = $1`)
+      return client.query(queryStr, param)
         .then(result => {
           callback(null, result.rows)
         })
@@ -38,7 +39,7 @@ const getAlbumComments = (param, callback) => {
 
 // UPDATE
 const updateAlbumComment = (params, callback) => {
-  let queryStr = `UPDATE album_comments SET comment = $2 WHERE id = $1 RETURNING *`;
+  const queryStr = `UPDATE album_comments SET comment = $2 WHERE id = $1 RETURNING *`;
   pool.connect()
     .then(client => {
       return client.query(queryStr, params)
@@ -54,9 +55,10 @@ const updateAlbumComment = (params, callback) => {
 
 // DELETE
 const deleteAlbumComment = (param, callback) => {
+  const queryStr = `DELETE FROM album_comments WHERE id = $1 RETURNING *`;
   pool.connect()
     .then(client => {
-      return client.query(`DELETE FROM album_comments WHERE id = $1 RETURNING *`)
+      return client.query(queryStr, param)
         .then(result => {
           callback(null, result.rows)
         })
