@@ -1,37 +1,80 @@
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/bandland');
-
-let userSchema = mongoose.Schema({
-  id: Number,
-  username: String,
-  comment: String,
-  profileImageURL: String,
-  album: Number
+const { Pool } = require('pg');
+const pool = new Pool({
+  host: '127.0.0.1',
+  database: 'bandland_comments',
+  port: 5432,
 });
 
-let User = mongoose.model('User', userSchema);
+// CREATE
+const createNewAlbumComment = (params, callback) => {
+  const queryStr = `INSERT INTO album_comments (albumid, username, comment, profileimg, id) values ($1, $2, $3, $4, DEFAULT) RETURNING *`;
+  pool.connect()
+    .then(client => {
+      return client.query(queryStr, params)
+        .then(result => {
+          callback(null, result.rows)
+        })
+        .catch(e => {
+          client.release()
+          console.error(e.stack)
+        })
+    })
+}
 
-let getUser = (id, callback) => {
-  User.find({"id":id}).limit(1).exec((err, user) => {
-    if(err) {
-      callback(err);
-    } else {
-      callback(null, user);
-    }
-  });
-};
+// READ
+const getAlbumComments = (param, callback) => {
+  const queryStr = `SELECT * FROM album_comments WHERE albumId = $1`;
+  pool.connect()
+    .then(client => {
+      return client.query(queryStr, param)
+        .then(result => {
+          callback(null, result.rows)
+        })
+        .catch(e => {
+          client.release()
+          console.error(e.stack)
+        })
+    })
+}
 
-let getUsersForAlbum = (albumId, callback) => {
-  User.find({"album": albumId}).exec((err, albumUsers) => {
-    if (err) {
-      callback(err);
-    } else {
-      callback(null, albumUsers);
-    }
-  });
-};
+// UPDATE
+const updateAlbumComment = (params, callback) => {
+  const queryStr = `UPDATE album_comments SET comment = $2 WHERE id = $1 RETURNING *`;
+  pool.connect()
+    .then(client => {
+      return client.query(queryStr, params)
+        .then(result => {
+          callback(null, result.rows)
+        })
+        .catch(e => {
+          client.release()
+          console.error(e.stack)
+        })
+    })
+}
+
+// DELETE
+const deleteAlbumComment = (param, callback) => {
+  const queryStr = `DELETE FROM album_comments WHERE id = $1 RETURNING *`;
+  pool.connect()
+    .then(client => {
+      return client.query(queryStr, param)
+        .then(result => {
+          callback(null, result.rows)
+        })
+        .catch(e => {
+          client.release()
+          console.error(e.stack)
+        })
+    })
+}
 
 module.exports = {
-  getUser: getUser,
-  getUsersForAlbum: getUsersForAlbum
-}
+  getAlbumComments,
+  createNewAlbumComment,
+  updateAlbumComment,
+  deleteAlbumComment}
+
+
+
+
