@@ -58,6 +58,7 @@ app.put('/support/comments/:id', (req, res) => {
 
 app.delete('/support/comments/:id', (req, res) => {
   let commentId = Number(req.params.id);
+
   db.deleteAlbumComment(commentId, (err, result) => {
     if (err) {
       console.error(error);
