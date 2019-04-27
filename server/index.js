@@ -17,9 +17,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 const db = require('../database/pg.js');
 
 app.get('/support/:id', (req, res) => {
-  let albumId = Number(req.params.id);
+  const albumId = Number(req.params.id);
+  const param = albumId;
 
-  db.getAlbumComments(albumId, (err, albumUsers) => {
+  db.getAlbumComments(param, (err, albumUsers) => {
     if (err) {
       console.log(err);
     } else {
@@ -43,8 +44,8 @@ app.post('/support/:id', (req, res) => {
 });
 
 app.put('/support/comments/:id', (req, res) => {
-  let commentId = Number(req.params.id);
-  let params = [commentId, req.body.comment];
+  const commentId = Number(req.params.id);
+  const params = [commentId, req.body.comment];
 
   db.updateAlbumComment(params, (err, result) => {
     if (err) {
@@ -57,8 +58,10 @@ app.put('/support/comments/:id', (req, res) => {
 });
 
 app.delete('/support/comments/:id', (req, res) => {
-  let commentId = Number(req.params.id);
-  db.deleteAlbumComment(commentId, (err, result) => {
+  const commentId = Number(req.params.id);
+  const param = [commentId]
+
+  db.deleteAlbumComment(param, (err, result) => {
     if (err) {
       console.error(error);
     } else {

@@ -1,44 +1,72 @@
-const { Client } = require('pg');
-const client = new Client({
+const { Pool } = require('pg');
+const pool = new Pool({
   host: '127.0.0.1',
   database: 'bandland_comments',
   port: 5432,
 });
 
-client.connect()
-  .then(() => console.log('successfully connected to PostgresQL'))
-  .catch(e => console.error('connection error', err.stack))
-
 // CREATE
 const createNewAlbumComment = (params, callback) => {
-  // console.log(params);
-  let queryStr = `INSERT INTO album_comments (albumid, username, comment, profileimg, id) values ($1, $2, $3, $4, DEFAULT) RETURNING *`;
-  client.query(queryStr, params)
-    .then(result => callback(null, result.rows))
-    .catch(e => console.error(e.stack))
+  const queryStr = `INSERT INTO album_comments (albumid, username, comment, profileimg, id) values ($1, $2, $3, $4, DEFAULT) RETURNING *`;
+  pool.connect()
+    .then(client => {
+      return client.query(queryStr, params)
+        .then(result => {
+          callback(null, result.rows)
+        })
+        .catch(e => {
+          client.release()
+          console.error(e.stack)
+        })
+    })
 }
 
 // READ
-const getAlbumComments = (albumId, callback) => {
-  client.query(`SELECT * FROM album_comments WHERE albumId = ${albumId}`)
-    .then(result => callback(null, result.rows))
-    .catch(e => console.error(e.stack))
+const getAlbumComments = (param, callback) => {
+  const queryStr = `SELECT * FROM album_comments WHERE albumId = $1`;
+  pool.connect()
+    .then(client => {
+      return client.query(queryStr, param)
+        .then(result => {
+          callback(null, result.rows)
+        })
+        .catch(e => {
+          client.release()
+          console.error(e.stack)
+        })
+    })
 }
 
 // UPDATE
 const updateAlbumComment = (params, callback) => {
-  let queryStr = `UPDATE album_comments SET comment = ($2) WHERE id = ($1) RETURNING *`;
-  client.query(queryStr, params)
-    .then(result => callback(null, result.rows))
-    .catch(e => console.error(e.stack))
+  const queryStr = `UPDATE album_comments SET comment = $2 WHERE id = $1 RETURNING *`;
+  pool.connect()
+    .then(client => {
+      return client.query(queryStr, params)
+        .then(result => {
+          callback(null, result.rows)
+        })
+        .catch(e => {
+          client.release()
+          console.error(e.stack)
+        })
+    })
 }
 
-
 // DELETE
-const deleteAlbumComment = (commentId, callback) => {
-  client.query(`DELETE FROM album_comments WHERE id = ${commentId} RETURNING *`)
-    .then(result => callback(null, result.rows))
-    .catch(e => console.error(e.stack))
+const deleteAlbumComment = (param, callback) => {
+  const queryStr = `DELETE FROM album_comments WHERE id = $1 RETURNING *`;
+  pool.connect()
+    .then(client => {
+      return client.query(queryStr, param)
+        .then(result => {
+          callback(null, result.rows)
+        })
+        .catch(e => {
+          client.release()
+          console.error(e.stack)
+        })
+    })
 }
 
 module.exports = {
