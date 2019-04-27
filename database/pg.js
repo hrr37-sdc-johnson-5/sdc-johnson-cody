@@ -22,10 +22,10 @@ const createNewAlbumComment = (params, callback) => {
 }
 
 // READ
-const getAlbumComments = (albumId, callback) => {
+const getAlbumComments = (param, callback) => {
   pool.connect()
     .then(client => {
-      return client.query(`SELECT * FROM album_comments WHERE albumId = ${albumId}`)
+      return client.query(`SELECT * FROM album_comments WHERE albumId = $1`)
         .then(result => {
           callback(null, result.rows)
         })
@@ -38,7 +38,7 @@ const getAlbumComments = (albumId, callback) => {
 
 // UPDATE
 const updateAlbumComment = (params, callback) => {
-  let queryStr = `UPDATE album_comments SET comment = ($2) WHERE id = ($1) RETURNING *`;
+  let queryStr = `UPDATE album_comments SET comment = $2 WHERE id = $1 RETURNING *`;
   pool.connect()
     .then(client => {
       return client.query(queryStr, params)
@@ -53,10 +53,10 @@ const updateAlbumComment = (params, callback) => {
 }
 
 // DELETE
-const deleteAlbumComment = (commentId, callback) => {
+const deleteAlbumComment = (param, callback) => {
   pool.connect()
     .then(client => {
-      return client.query(`DELETE FROM album_comments WHERE id = ${commentId} RETURNING *`)
+      return client.query(`DELETE FROM album_comments WHERE id = $1 RETURNING *`)
         .then(result => {
           callback(null, result.rows)
         })
