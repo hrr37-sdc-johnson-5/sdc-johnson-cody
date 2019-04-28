@@ -1,0 +1,11 @@
+config:
+  target: 'http://localhost:3003'
+  phases:
+    - duration: 120
+      arrivalRate: 20
+      rampTo: 120
+scenarios:
+  - name: "Get comments"
+    flow:
+      - get:
+          url: "/support/1000/"

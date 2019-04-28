@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -18,7 +19,7 @@ const db = require('../database/index.js');
 
 app.get('/support/:id', (req, res) => {
   const albumId = Number(req.params.id);
-  const param = albumId;
+  const param = [ albumId ];
 
   db.getAlbumComments(param, (err, albumUsers) => {
     if (err) {
@@ -59,7 +60,7 @@ app.put('/support/comments/:id', (req, res) => {
 
 app.delete('/support/comments/:id', (req, res) => {
   const commentId = Number(req.params.id);
-  const param = [commentId]
+  const param = [ commentId ]
 
   db.deleteAlbumComment(param, (err, result) => {
     if (err) {
