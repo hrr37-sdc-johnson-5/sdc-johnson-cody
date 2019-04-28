@@ -3,3 +3,5 @@ client/dist/bundle.js
 coverage
 .aws.json
 mockData/
+newrelic.js
+newrelic_agent.log

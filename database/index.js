@@ -12,6 +12,7 @@ const createNewAlbumComment = (params, callback) => {
     .then(client => {
       return client.query(queryStr, params)
         .then(result => {
+          client.release()
           callback(null, result.rows)
         })
         .catch(e => {
@@ -28,6 +29,7 @@ const getAlbumComments = (param, callback) => {
     .then(client => {
       return client.query(queryStr, param)
         .then(result => {
+          client.release()
           callback(null, result.rows)
         })
         .catch(e => {
@@ -44,6 +46,7 @@ const updateAlbumComment = (params, callback) => {
     .then(client => {
       return client.query(queryStr, params)
         .then(result => {
+          client.release()
           callback(null, result.rows)
         })
         .catch(e => {
@@ -60,6 +63,7 @@ const deleteAlbumComment = (param, callback) => {
     .then(client => {
       return client.query(queryStr, param)
         .then(result => {
+          client.release()
           callback(null, result.rows)
         })
         .catch(e => {
