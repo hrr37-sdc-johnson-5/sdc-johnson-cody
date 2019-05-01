@@ -9,7 +9,7 @@
   },
   "scripts": {
     "react:dev": "webpack -d --watch",
-    "gen-data": "node --max-old-space-size=8192 database/mockDataGen.js",
+    "gen-data": "node --max-old-space-size=8192 mockData/mockDataGen.js",
     "seed-postgres": "node --max-old-space-size=8192 database/postgresSeed.js",
     "start": "node server/index.js",
     "start:dev": "nodemon server/index.js",
